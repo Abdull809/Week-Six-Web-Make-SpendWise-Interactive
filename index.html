@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SpendWise Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span class="logo-icon">💰</span>
+            <h2>SpendWise</h2>
+        </div>
+
+        <nav class="navigation">
+
+            <a href="#dashboard" class="nav-item active">
+                <span>📊</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#transactions" class="nav-item">
+                <span>💳</span>
+                <span>Transactions</span>
+            </a>
+
+            <a href="#categories" class="nav-item">
+                <span>📈</span>
+                <span>Analytics</span>
+            </a>
+
+            <a href="#budget-section" class="nav-item">
+                <span>🎯</span>
+                <span>Budgets</span>
+            </a>
+
+            <a href="#savings" class="nav-item">
+                <span>💰</span>
+                <span>Savings</span>
+            </a>
+
+            <a href="#settings" class="nav-item">
+                <span>⚙️</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-budget">
+
+            <p>Monthly Budget</p>
+
+            <h3 id="sidebarBudget">
+                KSh 150,000
+            </h3>
+
+            <div class="budget-progress">
+                <div
+                    class="budget-progress-bar"
+                    id="sidebarProgress">
+                </div>
+            </div>
+
+            <small id="sidebarBudgetText">
+                0% of your budget used
+            </small>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content" id="dashboard">
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <div class="header-left">
+
+                <p class="welcome-message">
+                    Good morning, Amina 👋
+                </p>
+
+                <h1>Dashboard</h1>
+
+            </div>
+
+            <div class="header-right">
+
+                <div
+                    class="notification"
+                    id="notificationButton"
+                    title="Budget notifications">
+                    🔔
+                </div>
+
+                <div class="profile">
+
+                    <div class="avatar">
+                        A
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>Amina</strong>
+
+                        <small>
+                            Personal Account
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= BUDGET ================= -->
+
+        <section
+            class="budget-section"
+            id="budget-section">
+
+            <div class="budget-form-container">
+
+                <div>
+
+                    <h2>Monthly Budget</h2>
+
+                    <p>
+                        Set your budget and let SpendWise
+                        track your spending.
+                    </p>
+
+                </div>
+
+                <form id="budgetForm">
+
+                    <input
+                        type="number"
+                        id="budgetInput"
+                        placeholder="Enter budget"
+                        min="1"
+                        required
+                    >
+
+                    <button type="submit">
+                        Set Budget
+                    </button>
+
+                </form>
+
+            </div>
+
+            <p id="budgetMessage"></p>
+
+        </section>
+
+
+        <!-- ================= SUMMARY ================= -->
+
+        <section class="summary">
+
+            <div class="summary-card">
+
+                <div class="summary-card-content">
+
+                    <p>Total Balance</p>
+
+                    <h2 id="totalBalance">
+                        KSh 47,650
+                    </h2>
+
+                    <span
+                        class="positive"
+                        id="balanceStatus">
+                        ✓ You have money available
+                    </span>
+
+                </div>
+
+                <div class="summary-icon blue">
+                    💰
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-card-content">
+
+                    <p>Monthly Income</p>
+
+                    <h2 id="monthlyIncome">
+                        KSh 150,000
+                    </h2>
+
+                    <span class="positive">
+                        Your monthly income
+                    </span>
+
+                </div>
+
+                <div class="summary-icon green">
+                    📈
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-card-content">
+
+                    <p>Monthly Expenses</p>
+
+                    <h2 id="totalExpenses">
+                        KSh 102,350
+                    </h2>
+
+                    <span
+                        id="expensePercentage"
+                        class="negative">
+                        68.2% of income
+                    </span>
+
+                </div>
+
+                <div class="summary-icon red">
+                    💸
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= RECORD COUNT ================= -->
+
+        <section class="record-info">
+
+            <div>
+                <strong id="recordCount">9</strong>
+                <span>Total Expense Records</span>
+            </div>
+
+            <div>
+                <strong id="categoryCount">6</strong>
+                <span>Active Categories</span>
+            </div>
+
+        </section>
+
+
+        <!-- ================= BUDGET STATUS ================= -->
+
+        <section class="status-section">
+
+            <div
+                id="budgetStatus"
+                class="budget-status">
+
+                <strong>Budget Status</strong>
+
+                <span>
+                    Start adding expenses to see your status.
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ADD EXPENSE ================= -->
+
+        <section class="add-expense-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>Add Expense</h2>
+
+                    <p>
+                        Record a new expense
+                    </p>
+
+                </div>
+
+            </div>
+
+            <form
+                id="expenseForm"
+                class="expense-form">
+
+                <div class="form-group">
+
+                    <label for="expenseName">
+                        Expense Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="expenseName"
+                        placeholder="e.g. Lunch"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="expenseAmount">
+                        Amount
+                    </label>
+
+                    <input
+                        type="number"
+                        id="expenseAmount"
+                        placeholder="e.g. 1200"
+                        min="1"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="expenseCategory">
+                        Category
+                    </label>
+
+                    <select
+                        id="expenseCategory"
+                        required>
+
+                        <option value="">
+                            Select category
+                        </option>
+
+                        <option value="Food">
+                            🍔 Food
+                        </option>
+
+                        <option value="Transport">
+                            🚗 Transport
+                        </option>
+
+                        <option value="Rent">
+                            🏠 Rent
+                        </option>
+
+                        <option value="Entertainment">
+                            🎬 Entertainment
+                        </option>
+
+                        <option value="Savings">
+                            💰 Savings
+                        </option>
+
+                        <option value="Utilities">
+                            💡 Utilities
+                        </option>
+
+                        <option value="Shopping">
+                            🛒 Shopping
+                        </option>
+
+                        <option value="Other">
+                            📦 Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="add-button">
+
+                    + Add Expense
+
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- ================= CATEGORIES ================= -->
+
+        <section
+            class="categories"
+            id="categories">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        Spending Categories
+                    </h2>
+
+                    <p>
+                        Track where your money goes
+                    </p>
+
+                </div>
+
+                <button
+                    class="view-button"
+                    id="sortCategoriesButton">
+
+                    Sort by Amount
+
+                </button>
+
+            </div>
+
+
+            <div
+                class="category-grid"
+                id="categoryGrid">
+            </div>
+
+        </section>
+
+
+        <!-- ================= TRANSACTIONS ================= -->
+
+        <section
+            class="transactions"
+            id="transactions">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        Recent Transactions
+                    </h2>
+
+                    <p>
+                        Your latest financial activity
+                    </p>
+
+                </div>
+
+                <button
+                    class="view-button"
+                    id="clearButton">
+
+                    Clear All
+
+                </button>
+
+            </div>
+
+
+            <div class="search-container">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="🔍 Search transactions..."
+                >
+
+            </div>
+
+
+            <div
+                class="transaction-list"
+                id="transactionList">
+            </div>
+
+        </section>
+
+
+        <!-- ================= SAVINGS ================= -->
+
+        <section
+            class="savings-section"
+            id="savings">
+
+            <div>
+
+                <h2>💰 Savings Goal</h2>
+
+                <p>
+                    Keep building your financial future.
+                </p>
+
+            </div>
+
+            <div class="savings-info">
+
+                <strong id="savingsAmount">
+                    KSh 20,000
+                </strong>
+
+                <span>
+                    saved this month
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SETTINGS ================= -->
+
+        <section
+            class="settings-section"
+            id="settings">
+
+            <h2>⚙️ Settings</h2>
+
+            <p>
+                SpendWise uses KSh as the currency.
+            </p>
+
+            <button
+                id="resetButton"
+                class="reset-button">
+
+                Reset Demo Data
+
+            </button>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
